@@ -1,8 +1,9 @@
-const { Ship } = require('../src/ship');
+const Ship = require('../src/ship');
 
 describe ('ship', () => {
   let amsterdam;
   let lochness;
+  let ship;
 
   describe('with ports and an itinerary', () => {
     beforeEach(() => {

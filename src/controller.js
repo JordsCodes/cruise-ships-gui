@@ -72,6 +72,7 @@ Controller.prototype = {
   renderMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.id = 'message';
+
     messageElement.innerHTML = message;
     const viewport = document.querySelector('#viewport');
 
@@ -83,22 +84,25 @@ Controller.prototype = {
   },
   renderDisplay() {
     const body = document.querySelector('#body');
-    const displayElement = document.createElement('div');
+    const displayElement = document.querySelector('#display');
+    const currentPortElement = document.querySelector('#currentPort');
+    const nextPortElement = document.querySelector('#nextPort');
     const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
     const nextPortIndex = currentPortIndex + 1;
-
     const nextPort = ship.itinerary.ports[nextPortIndex];
-    displayElement.id = 'display';
+    
+
     if (nextPortIndex > this.ship.itinerary.ports.length - 1) {
-      displayElement.innerHTML = `Current Port: ${this.ship.currentPort.name}<br/><br/> Next Port: End of the line :(`;
+      currentPortElement.innerHTML = this.ship.currentPort.name;
+      nextPortElement.innerHTML = `End of the line`;
     }
     else {
-      displayElement.innerHTML = `Current Port: ${this.ship.currentPort.name}<br/> <br/> Next Port: ${nextPort.name}`;
+      currentPortElement.innerHTML = this.ship.currentPort.name,
+      nextPortElement.innerHTML = nextPort.name;
     };
-
     body.appendChild(displayElement);
-  }
-};
+  },
+}
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = { Controller };
   } else {
