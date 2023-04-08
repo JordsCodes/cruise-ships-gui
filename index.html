@@ -11,7 +11,7 @@
 <body id = "body">
     <form id ="form" onsubmit = "return false">
       <label for="port">Add Port:</label><br>
-      <input type="text" id="portinput" name="portinput"><br>
+      <input type="text" id="portInput" name="portinput"><br>
       <input type="submit" id="submitButton" value="Submit"></button>
     </form>
   <div id='display'>
@@ -32,17 +32,19 @@
   <script src="src/itinerary.js"></script>
   <script src="src/ship.js"></script>
   <script> 
-    const itinerary = new Itinerary([
-      new Port ('Amsterdam'),
-      new Port ('Loch Ness'),
-      new Port ('Glasgow'),
-      new Port ('Belfast')
-    ]);
-    const ship = new Ship(itinerary);
-    const controller = new Controller(ship);
-    controller.renderPorts(itinerary.ports)
-    controller.renderShip(ship);
-    controller.renderDisplay();
+    const submitButton = document.querySelector('#submitButton');
+    const portInput = document.querySelector('#portInput')
+    const itinerary = new Itinerary([]);
+
+    submitButton.addEventListener("click", function() {
+      let port = new Port(portInput.value);
+      itinerary.ports.push(port);
+      const ship = new Ship(itinerary);
+      console.log(ship);
+      const controller = new Controller(ship);
+      controller.renderPorts(itinerary.ports);
+      controller.renderShip(ship);
+    });
   </script>
 </body>
 </html>

@@ -6,7 +6,6 @@ function Controller (ship) {
     this.setSail();
   });
 };
-
 Controller.prototype = {
   initialiseSea() {
   const backgrounds = [
@@ -90,7 +89,6 @@ Controller.prototype = {
     const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
     const nextPortIndex = currentPortIndex + 1;
     const nextPort = ship.itinerary.ports[nextPortIndex];
-    
 
     if (nextPortIndex > this.ship.itinerary.ports.length - 1) {
       currentPortElement.innerHTML = this.ship.currentPort.name;
@@ -101,8 +99,8 @@ Controller.prototype = {
       nextPortElement.innerHTML = nextPort.name;
     };
     body.appendChild(displayElement);
-  },
-}
+  }
+};
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = { Controller };
   } else {
