@@ -2,11 +2,7 @@
 class Ship {
   constructor(itinerary){
     this.itinerary = itinerary;
-    this.currentPort = itinerary.ports[0];
-    this.previousPort = null;
-    this.currentPort.addShip(this);
   };
-
   setSail() {
     const ports = this.itinerary.ports;
     const currentPortIndex = ports.indexOf(this.currentPort);

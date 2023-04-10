@@ -21,7 +21,7 @@ Controller.prototype = {
   renderPorts(ports) {
     const portsElement = document.querySelector('#ports');
     portsElement.style.width = '0px';
-
+    portsElement.innerHTML = '';
     ports.forEach((port, index) => {
       const newPortElement = document.createElement('div');
       newPortElement.className = 'port';
@@ -29,8 +29,7 @@ Controller.prototype = {
       newPortElement.dataset.portIndex = index;
       const portsElementWidth = parseInt(portsElement.style.width, 10);
       portsElement.style.width = `${portsElementWidth + 256}px`;
-    
-      portsElement.appendChild(newPortElement);
+      portsElement.appendChild(newPortElement); 
     });
   },
   renderShip() {
@@ -58,6 +57,7 @@ Controller.prototype = {
     const shipElement = document.querySelector('#ship');
     const sailInterval = setInterval(() => {
       const shipLeft = parseInt(shipElement.style.left, 10);
+      console.log(shipLeft);
       if (shipLeft === (nextPortElement.offsetLeft - 32)) {
         ship.setSail();
         ship.dock();

@@ -34,16 +34,26 @@
   <script> 
     const submitButton = document.querySelector('#submitButton');
     const portInput = document.querySelector('#portInput')
+    
     const itinerary = new Itinerary([]);
+    const ship = new Ship(itinerary);
+    const controller = new Controller(ship);
 
     submitButton.addEventListener("click", function() {
       let port = new Port(portInput.value);
       itinerary.ports.push(port);
-      const ship = new Ship(itinerary);
-      console.log(ship);
-      const controller = new Controller(ship);
+      console.log(itinerary.ports);
       controller.renderPorts(itinerary.ports);
-      controller.renderShip(ship);
+      if (!ship.currentPort) {
+        ship.currentPort = port;
+        this.previousPort= null;
+        ship.currentPort.addShip(ship);
+        controller.renderShip(ship);
+        controller.renderDisplay();
+      }
+      else {
+        controller.renderDisplay();
+      };
     });
   </script>
 </body>
