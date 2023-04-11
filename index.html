@@ -10,8 +10,8 @@
 </head>
 <body id = "body">
     <form id ="form" onsubmit = "return false">
-      <label for="port">Add Port:</label><br>
-      <input type="text" id="portInput" name="portinput"><br>
+      <label for="port">Add Port:</label>
+      <input type="text" id="portInput" name="portinput">
       <input type="submit" id="submitButton" value="Submit"></button>
     </form>
   <div id='display'>
@@ -32,18 +32,19 @@
   <script src="src/itinerary.js"></script>
   <script src="src/ship.js"></script>
   <script> 
-    const submitButton = document.querySelector('#submitButton');
-    const portInput = document.querySelector('#portInput')
-    
     const itinerary = new Itinerary([]);
     const ship = new Ship(itinerary);
     const controller = new Controller(ship);
-
+  </script>
+  <script>
+    const submitButton = document.querySelector('#submitButton');
+    const portInput = document.querySelector('#portInput')
+    
     submitButton.addEventListener("click", function() {
-      let port = new Port(portInput.value);
+      const port = new Port(portInput.value);
       itinerary.ports.push(port);
-      console.log(itinerary.ports);
       controller.renderPorts(itinerary.ports);
+      
       if (!ship.currentPort) {
         ship.currentPort = port;
         this.previousPort= null;

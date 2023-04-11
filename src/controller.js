@@ -71,7 +71,6 @@ Controller.prototype = {
   renderMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.id = 'message';
-
     messageElement.innerHTML = message;
     const viewport = document.querySelector('#viewport');
 

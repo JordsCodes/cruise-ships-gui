@@ -14,6 +14,7 @@ body {
 #viewport {
   width: 640px;
   height: 256px;
+  border-style: dashed;
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;
@@ -82,26 +83,43 @@ body {
   font-family: 'VT323', monospace;
   font-size: 2em;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 256px;
-  height: 128px;
+  height: 150px;
   top: 10px;
   right: 10px;
   border-style: dashed;
   background-color: white;
 }
 
+#display > p
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #form {
   position: absolute;
+  padding: 10px;
   top: 10px;
   left: 10px;
   width: 256px;
-  height: 128px;
-  font-size: 1.5em;
+  height: 150px;
+  font-size: 2em;
   font-family: 'VT323', monospace;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   background-color: white;
+  border-style: dashed;
+}
+
+#portInput {
+  font-size: 1em;
+  font-family: 'VT323', monospace;
 }
 
 #submitButton
@@ -113,5 +131,4 @@ body {
 #portInput
 {
   width: 100px;
-  height: 100px;
 }
