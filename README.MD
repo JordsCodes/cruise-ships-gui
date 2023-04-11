@@ -17,9 +17,9 @@ To run the project, navigate to the cruise-ships directory in the terminal and r
 
 The project simulates a cruise ship. In the src folder you will find js files for ship, itinerary, port, and controller. Port objects are instantiated and passed into Itinerary objects, and these Itinerary objects are passed into the Ship object.
 
-Opening index.html grants the user a visual representation of the project. The ship object is presently hardcoded to a pre-set itinerary of ports, located in the index.html file. 
+The user can add ports via the form present on the index.html webpage. Clicking "submit" initialises a port object named with the provided string, which is then pushed to the itinerary array object, which is a property of the ship object. Further submissions will render more ports.
 
-At the time of writing, the gui does not allow for itinerary customisation. If you would like to change the itinerary you will therefore need to edit the index.html file.
+When the user is ready to set sail, the "Set Sail" button in the viewport can be clicked. A departure and arrival message will be rendered on the screen. The user is free to add more ports to the itinerary at any time.
 
 ## Credits
 
