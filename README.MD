@@ -4,7 +4,7 @@ This is a JavaScript exercise in object dependency and test-driven development, 
 
 ## Installation
 
-The project is designed to be run locally in the jest test suite. You will need the node project manager installed on your machine for this project to run. 
+The project is designed to be run locally in the jest test suite. You will need the node project manager installed on your machine for this project to run:
 
 `npm install`
 
