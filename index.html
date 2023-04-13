@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="normalize" href="css/normalize.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cruise Ships</title>
+</head>
+<body id = "body">
+    <form id ="form" onsubmit = "return false">
+      <label for="port">Add Port:</label>
+      <input type="text" id="portInput" name="portinput">
+      <input type="submit" id="submitButton" value="Submit"></button>
+    </form>
+  <div id='display'>
+    <p> Current Port: <span id="currentPort"></span></p>
+    <p> Next Port: <span id="nextPort"></span></p>
+  </div>
+  <div id = "viewport">
+    <div id= "ports">
+    </div>
+    <div id= "ship">
+    </div>
+    <div id = "blankspace">
+    </div>
+    <button id="sailbutton">Set Sail!</button>
+  </div>
+  <script src="src/controller.js"></script>
+  <script src="src/port.js"></script>
+  <script src="src/itinerary.js"></script>
+  <script src="src/ship.js"></script>
+  <script> 
+    const itinerary = new Itinerary([]);
+    const ship = new Ship(itinerary);
+    const controller = new Controller(ship);
+  </script>
+  <script>
+    const submitButton = document.querySelector('#submitButton');
+    const portInput = document.querySelector('#portInput')
+    
+    submitButton.addEventListener("click", function() {
+      const port = new Port(portInput.value);
+      itinerary.ports.push(port);
+      controller.renderPorts(itinerary.ports);
+      
+      if (!ship.currentPort) {
+        ship.currentPort = port;
+        this.previousPort= null;
+        ship.currentPort.addShip(ship);
+        controller.renderShip(ship);
+        controller.renderDisplay();
+      }
+      else {
+        controller.renderDisplay();
+      };
+    });
+  </script>
+</body>
+</html>
