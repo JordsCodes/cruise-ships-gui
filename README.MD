@@ -12,6 +12,10 @@ To clone the project to your machine, navigate to your desired directory in the 
 
 `git clone https://github.com/JordsCodes/cruise-ships`
 
+To access the test suite, you will also need to install jest in the root directory of the project:
+
+`npm install jest -d`
+
 The tests can be accessed by running `npm test` in the root directory.
 
 ## Usage
